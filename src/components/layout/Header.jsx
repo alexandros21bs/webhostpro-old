@@ -6,12 +6,13 @@ import { Menu, X } from 'lucide-react'
 import navLogo from '../../../12.png'
 
 const navItems = [
-  { label: 'Αρχική', to: '/' },
-  { label: 'Υπηρεσίες', to: '/services' },
+  { label: 'Home', to: '/' },
+  { label: 'Services', to: '/services' },
+  { label: 'Solutions', to: '/services' },
+  { label: 'Projects', to: '/projects' },
   { label: 'Digital Achaia', to: '/digital-achaia' },
-  { label: 'Έργα', to: '/projects' },
-  { label: 'Σχετικά', to: '/about' },
-  { label: 'Επικοινωνία', to: '/contact' },
+  { label: 'About', to: '/about' },
+  { label: 'Contact', to: '/contact' },
 ]
 
 export default function Header() {
@@ -35,9 +36,8 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Reset mobile menu state when route changes ("Adjusting state when prop changes"
-  // pattern from React docs — avoids setState inside an effect).
   const [prevPath, setPrevPath] = useState(location.pathname)
+
   if (prevPath !== location.pathname) {
     setPrevPath(location.pathname)
     if (open) setOpen(false)
@@ -53,15 +53,26 @@ export default function Header() {
       )}
     >
       <div className="container-main">
-        <div className={clsx('flex items-center justify-between transition-all duration-400', scrolled ? 'py-3.5' : 'py-4')}>
+        <div
+          className={clsx(
+            'flex items-center justify-between transition-all duration-400',
+            scrolled ? 'py-3.5' : 'py-4'
+          )}
+        >
           <Link to="/" className="group flex items-center gap-3">
-            <img src={navLogo} alt="Web Host Pro" width="240" height="80" className="h-12 w-auto lg:h-16" />
+            <img
+              src={navLogo}
+              alt="Web Host Pro"
+              width="240"
+              height="80"
+              className="h-12 w-auto lg:h-16"
+            />
           </Link>
 
-          <nav className="hidden items-center gap-6 lg:flex">
+          <nav className="hidden items-center gap-5 lg:flex">
             {navItems.map((item) => (
               <NavLink
-                key={item.to}
+                key={`${item.label}-${item.to}`}
                 to={item.to}
                 className={({ isActive }) =>
                   clsx(
@@ -88,9 +99,15 @@ export default function Header() {
           </nav>
 
           <div className="hidden items-center gap-4 lg:flex">
-            {/* Language switcher */}
+            <Link
+              to="/contact"
+              className="premium-btn btn btn-primary rounded-full px-5 py-2 text-sm"
+            >
+              Start Your Project
+            </Link>
+
             <div className="flex items-center overflow-hidden rounded-full border border-white/15 bg-white/5 text-sm font-semibold tracking-wide backdrop-blur-sm">
-              <button className="relative px-3.5 py-1.5 text-cyan-200 bg-transparent transition-all duration-300 hover:bg-white/8">
+              <button className="relative bg-transparent px-3.5 py-1.5 text-cyan-200 transition-all duration-300 hover:bg-white/8">
                 EL
                 <span className="absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent" />
               </button>
@@ -100,23 +117,57 @@ export default function Header() {
               </button>
             </div>
 
-            {/* Contact icon */}
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center rounded-full border border-amber-400/30 bg-amber-400/10 p-2 text-amber-400 transition-all duration-300 hover:bg-amber-400/20 hover:shadow-[0_0_16px_rgba(212,168,79,0.35)] hover:scale-110"
+              className="inline-flex items-center justify-center rounded-full border border-amber-400/30 bg-amber-400/10 p-2 text-amber-400 transition-all duration-300 hover:scale-110 hover:bg-amber-400/20 hover:shadow-[0_0_16px_rgba(212,168,79,0.35)]"
               aria-label="Επικοινωνία"
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
             </Link>
 
-            {/* Share icon */}
             <button
               type="button"
-              onClick={() => { if (navigator.share) { navigator.share({ title: document.title, url: window.location.href }) } else { navigator.clipboard.writeText(window.location.href) } }}
-              className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 p-2 text-cyan-300 transition-all duration-300 hover:bg-white/10 hover:scale-110 hover:shadow-[0_0_14px_rgba(110,198,255,0.25)]"
+              onClick={() => {
+                if (navigator.share) {
+                  navigator.share({
+                    title: document.title,
+                    url: window.location.href,
+                  })
+                } else {
+                  navigator.clipboard.writeText(window.location.href)
+                }
+              }}
+              className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 p-2 text-cyan-300 transition-all duration-300 hover:scale-110 hover:bg-white/10 hover:shadow-[0_0_14px_rgba(110,198,255,0.25)]"
               aria-label="Share"
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="18" cy="5" r="3" />
+                <circle cx="6" cy="12" r="3" />
+                <circle cx="18" cy="19" r="3" />
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+              </svg>
             </button>
           </div>
 
@@ -124,6 +175,7 @@ export default function Header() {
             type="button"
             onClick={() => setOpen(!open)}
             className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 p-2 text-white transition hover:border-cyan-200/35 lg:hidden"
+            aria-label="Menu"
           >
             {open ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -141,7 +193,7 @@ export default function Header() {
               <div className="flex flex-col gap-2">
                 {navItems.map((item) => (
                   <NavLink
-                    key={item.to}
+                    key={`${item.label}-${item.to}-mobile`}
                     to={item.to}
                     onClick={() => setOpen(false)}
                     className={({ isActive }) =>
@@ -162,8 +214,18 @@ export default function Header() {
                   onClick={() => setOpen(false)}
                   className="premium-btn btn btn-primary mt-2 rounded-xl px-4 py-3 text-center text-sm"
                 >
-                  Επικοινωνία
+                  Start Your Project
                 </Link>
+
+                <a
+                  href="https://wa.me/306955236006"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setOpen(false)}
+                  className="rounded-xl border border-white/12 bg-white/[0.05] px-4 py-3 text-center text-sm text-white/85 transition hover:bg-white/[0.1]"
+                >
+                  WhatsApp: 6955236006
+                </a>
               </div>
             </motion.div>
           )}
