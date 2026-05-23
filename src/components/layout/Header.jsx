@@ -7,8 +7,7 @@ import navLogo from '../../../12.png'
 
 const navItems = [
   { label: 'Home', to: '/' },
-  { label: 'Services', to: '/services' },
-  { label: 'Solutions', to: '/services' },
+  { label: 'Infrastructure', to: '/services' },
   { label: 'Projects', to: '/projects' },
   { label: 'Digital Achaia', to: '/digital-achaia' },
   { label: 'About', to: '/about' },
@@ -69,7 +68,7 @@ export default function Header() {
             />
           </Link>
 
-          <nav className="hidden items-center gap-5 lg:flex">
+          <nav className="hidden items-center gap-3 lg:flex">
             {navItems.map((item) => (
               <NavLink
                 key={`${item.label}-${item.to}`}
@@ -101,74 +100,22 @@ export default function Header() {
           <div className="hidden items-center gap-4 lg:flex">
             <Link
               to="/contact"
-              className="premium-btn btn btn-primary rounded-full px-5 py-2 text-sm"
+              className="rounded-full border border-[#67E8F9]/70 bg-[#67E8F9]/10 px-5 py-2 text-sm font-semibold text-white shadow-[0_0_18px_rgba(103,232,249,0.22)] transition hover:bg-[#67E8F9]/20"
             >
               Start Your Project
             </Link>
 
-            <div className="flex items-center overflow-hidden rounded-full border border-white/15 bg-white/5 text-sm font-semibold tracking-wide backdrop-blur-sm">
-              <button className="relative bg-transparent px-3.5 py-1.5 text-cyan-200 transition-all duration-300 hover:bg-white/8">
+            <div className="flex items-center overflow-hidden rounded-full border border-amber-400/30 bg-amber-400/10 text-sm font-semibold tracking-wide backdrop-blur-sm">
+                <button className="relative bg-transparent px-3.5 py-1.5 text-white transition-all duration-300 hover:bg-amber-400/12">
                 EL
-                <span className="absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent" />
+                <span className="absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
               </button>
-              <span className="h-4 w-px bg-white/10" />
-              <button className="px-3.5 py-1.5 text-white/40 transition-all duration-300 hover:bg-white/8 hover:text-cyan-200/75">
+              <span className="h-4 w-px bg-amber-400/20" />
+              <button className="px-3.5 py-1.5 text-amber-400/55 transition-all duration-300 hover:bg-amber-400/12 hover:text-amber-300">
                 EN
               </button>
             </div>
 
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center rounded-full border border-amber-400/30 bg-amber-400/10 p-2 text-amber-400 transition-all duration-300 hover:scale-110 hover:bg-amber-400/20 hover:shadow-[0_0_16px_rgba(212,168,79,0.35)]"
-              aria-label="Επικοινωνία"
-            >
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <rect x="2" y="4" width="20" height="16" rx="2" />
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-              </svg>
-            </Link>
-
-            <button
-              type="button"
-              onClick={() => {
-                if (navigator.share) {
-                  navigator.share({
-                    title: document.title,
-                    url: window.location.href,
-                  })
-                } else {
-                  navigator.clipboard.writeText(window.location.href)
-                }
-              }}
-              className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 p-2 text-cyan-300 transition-all duration-300 hover:scale-110 hover:bg-white/10 hover:shadow-[0_0_14px_rgba(110,198,255,0.25)]"
-              aria-label="Share"
-            >
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="18" cy="5" r="3" />
-                <circle cx="6" cy="12" r="3" />
-                <circle cx="18" cy="19" r="3" />
-                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
-                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
-              </svg>
-            </button>
           </div>
 
           <button

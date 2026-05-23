@@ -345,7 +345,7 @@ export default function NeuralNetworkEffect({ mode = 'panel' }) {
         const idx = (current.pulseIndex + 1) % 3
         current.pulseIndex = idx
         pointUniforms.uPulsePositions.value[idx].copy(point)
-        pointUniforms.uPulseTimes.value[idx] = current.clock.getElapsedTime()
+        pointUniforms.uPulseTimes.value[idx] = current.clock.getElapsed()
         pointUniforms.uPulseColor.value = makeColor(
           palettes[themeIndex][Math.floor(Math.random() * palettes[themeIndex].length)]
         )
@@ -359,7 +359,8 @@ export default function NeuralNetworkEffect({ mode = 'panel' }) {
     }
     renderer.domElement.addEventListener('click', clickHandler)
 
-    const clock = new THREE.Clock()
+    const clock = new THREE.Timer()
+    clock.connect(document)
 
     const onResize = () => {
       if (isBackground) {
@@ -397,7 +398,8 @@ export default function NeuralNetworkEffect({ mode = 'panel' }) {
 
     const animate = () => {
       current.animationId = requestAnimationFrame(animate)
-      const t = clock.getElapsedTime()
+      clock.update()
+      const t = clock.getElapsed()
       pointUniforms.uTime.value = t
 
       if (!pausedRef.current) {
@@ -433,6 +435,7 @@ export default function NeuralNetworkEffect({ mode = 'panel' }) {
       starGeo.dispose()
       starMat.dispose()
       controls.dispose()
+      clock.dispose()
       renderer.dispose()
     }
   }, [density, themeIndex, formation, isBackground])

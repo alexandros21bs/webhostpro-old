@@ -200,7 +200,8 @@ body {
   flex-shrink: 0;
 }
 
-.top-bar-socials a {
+.top-bar-socials a,
+.top-bar-socials button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -208,7 +209,15 @@ body {
   transition: color 200ms ease, transform 200ms ease;
 }
 
-.top-bar-socials a:hover {
+.top-bar-socials button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.top-bar-socials a:hover,
+.top-bar-socials button:hover {
   color: #a5f3fc;
   transform: scale(1.15);
 }

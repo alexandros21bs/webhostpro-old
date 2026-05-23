@@ -5,6 +5,7 @@ import { ChevronUp } from 'lucide-react'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import ScrollToTop from './components/common/ScrollToTop'
+import AIDock from './components/common/AIDock'
 const NeuralNetworkEffect = lazy(() => import('./components/effects/NeuralNetworkEffect'))
 
 import HomePage from './pages/HomePage'
@@ -57,10 +58,15 @@ function TopBarCallMenu() {
 
   return (
     <div className="relative" ref={ref}>
-      <button type="button" onClick={() => setOpen(!open)} className="top-bar-link" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        className="top-bar-link"
+        style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+        aria-label="Επικοινωνία"
+        title="Επικοινωνία"
+      >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Επικοινωνία
-        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: 2, transition: 'transform 200ms', transform: open ? 'rotate(180deg)' : 'rotate(0)' }}><path d="m6 9 6 6 6-6"/></svg>
       </button>
       {open && (
         <div className="topbar-call-popup">
@@ -113,6 +119,22 @@ function ScrollToTopButton() {
 export default function App() {
   const location = useLocation()
 
+  const handleTopBarShare = async () => {
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: document.title,
+          url: window.location.href,
+        })
+        return
+      }
+
+      await navigator.clipboard.writeText(window.location.href)
+    } catch {
+      // Ignore cancelled share/clipboard actions.
+    }
+  }
+
   return (
     <div className="relative min-h-screen overflow-x-clip">
       <div className="global-neural-bg" aria-hidden="true">
@@ -134,11 +156,15 @@ export default function App() {
 
           {/* Right: brand + info + socials */}
           <div className="top-bar-right">
-            <span className="top-bar-brand"><strong>Web Host Pro Αιγιαλεία</strong> <span className="top-bar-brand-sep">|</span> Digital solutions & web presence</span>
+            <span className="top-bar-brand"><strong>Web Host Pro Αιγιαλεία</strong> <span className="top-bar-brand-sep">|</span> Technology AI & Cloud Provider</span>
             <span className="top-bar-divider" style={{ marginInline: '14px' }} />
-            <Link to="/contact" className="top-bar-link">
+            <Link
+              to="/contact"
+              className="top-bar-link"
+              aria-label="Φόρμα Επικοινωνίας"
+              title="Φόρμα Επικοινωνίας"
+            >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-              Φόρμα Επικοινωνίας
             </Link>
             <span className="top-bar-sep">·</span>
             <TopBarCallMenu />
@@ -166,6 +192,14 @@ export default function App() {
             <a href="https://x.com/WebHostProGR" target="_blank" rel="noopener noreferrer" aria-label="x.com">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.734-8.835L1.875 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
             </a>
+            <button
+              type="button"
+              onClick={handleTopBarShare}
+              aria-label="Share"
+              title="Share"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            </button>
           </div>
           </div>
         </div>
@@ -198,6 +232,7 @@ export default function App() {
       </main>
       <Footer />
 
+      <AIDock />
       <ScrollToTopButton />
       <CookieBanner />
     </div>

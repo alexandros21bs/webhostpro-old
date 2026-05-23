@@ -1,0 +1,137 @@
+===== GIT STATUS =====
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   index.html
+	modified:   src/App.jsx
+	modified:   src/components/effects/NeuralNetworkEffect.jsx
+	modified:   src/components/layout/Footer.jsx
+	modified:   src/components/layout/Header.jsx
+	modified:   src/pages/AboutPage.jsx
+	modified:   src/pages/DigitalAchaiaPage.jsx
+	modified:   src/pages/HomePage.jsx
+	modified:   src/pages/ServicesPage.jsx
+	modified:   src/styles/globals.css
+	modified:   src/styles/home.css
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	reports/
+	src/components/common/AIDock.jsx
+	src/components/common/ProjectPreviewLightbox.jsx
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+===== DIFF STAT =====
+ index.html                                     |    2 +-
+ src/App.jsx                                    |   47 +-
+ src/components/effects/NeuralNetworkEffect.jsx |    9 +-
+ src/components/layout/Footer.jsx               |  236 ++--
+ src/components/layout/Header.jsx               |   69 +-
+ src/pages/AboutPage.jsx                        |  241 ++--
+ src/pages/DigitalAchaiaPage.jsx                |  950 ++-----------
+ src/pages/HomePage.jsx                         |  553 ++++++--
+ src/pages/ServicesPage.jsx                     |  422 ++----
+ src/styles/globals.css                         |   13 +-
+ src/styles/home.css                            | 1798 ++++++++++++++++++++++++
+ 11 files changed, 2789 insertions(+), 1551 deletions(-)
+
+===== MODIFIED FILES =====
+index.html
+src/App.jsx
+src/components/effects/NeuralNetworkEffect.jsx
+src/components/layout/Footer.jsx
+src/components/layout/Header.jsx
+src/pages/AboutPage.jsx
+src/pages/DigitalAchaiaPage.jsx
+src/pages/HomePage.jsx
+src/pages/ServicesPage.jsx
+src/styles/globals.css
+src/styles/home.css
+
+===== UNTRACKED =====
+reports/full-project-report.txt
+src/components/common/AIDock.jsx
+src/components/common/ProjectPreviewLightbox.jsx
+
+===== COMMITS =====
+2d98ac8 (HEAD -> main) Upgrade Web Host Pro homepage and enterprise navigation
+a223145 (origin/main, origin/HEAD) fix: responsive mobile/tablet — hide top-bar right, nav to lg breakpoint, smaller logo on mobile
+d13a81e seo: improve all titles/descriptions, add robots meta, lastmod sitemap, GDPR cookie banner, privacy policy page, footer privacy link
+b02c9d4 fix: contact form sends email (PHP backend), add 404 page, fix DM Sans font, fix footer link, remove dead code
+cf3f253 fix: resolve ESLint errors and React rule violations
+91ac0f7 feat(ui): update services/footer/social links and navbar logo
+548fc7a perf(lcp): eager-load HomePage for instant hero render
+9ebd9af perf: lazy-load three.js neural background, switch favicon to loop.svg
+723dc9b perf: self-host DM Sans, hero logo to webp, remove card placeholder labels
+59edc7a perf(lcp): preload hero logo, font-display swap, add img dimensions
+8506151 perf(seo): route code-splitting, image optimizer (-79%), JSON-LD LocalBusiness, robots allow assets
+771786c feat(seo): split social images (wpog.png for OG, ven1.png for Twitter) + alt text
+7df1408 chore(git): ignore webhostpro-deploy.zip artifact
+c19cf54 feat(seo,security): add sitemap, robots, .htaccess (https/cache/compress/security headers), honeypot on contact form
+7202400 feat(deploy): add SSH deploy script + npm run deploy
+
+===== SRC TREE =====
+src
+src/App.jsx
+src/assets
+src/assets/hero.png
+src/assets/react.svg
+src/assets/vite.svg
+src/components
+src/components/common
+src/components/common/AIDock.jsx
+src/components/common/CookieBanner.jsx
+src/components/common/ProjectPreviewLightbox.jsx
+src/components/common/ScrollToTop.jsx
+src/components/common/Seo.jsx
+src/components/effects
+src/components/effects/NeuralNetworkEffect.jsx
+src/components/layout
+src/components/layout/Footer.jsx
+src/components/layout/Header.jsx
+src/data
+src/data/projects.js
+src/data/services.js
+src/main.jsx
+src/pages
+src/pages/AboutPage.jsx
+src/pages/ContactPage.jsx
+src/pages/DigitalAchaiaPage.jsx
+src/pages/HomePage.jsx
+src/pages/NotFoundPage.jsx
+src/pages/PrivacyPage.jsx
+src/pages/ProjectsPage.jsx
+src/pages/ServicesPage.jsx
+src/styles
+src/styles/globals.css
+src/styles/home.css
+
+===== COMPONENTS =====
+src/components/layout/Header.jsx
+src/components/layout/Footer.jsx
+src/components/common/ProjectPreviewLightbox.jsx
+src/components/common/AIDock.jsx
+src/components/common/ScrollToTop.jsx
+src/components/common/CookieBanner.jsx
+src/components/common/Seo.jsx
+src/components/effects/NeuralNetworkEffect.jsx
+
+===== PAGES =====
+src/pages/ContactPage.jsx
+src/pages/HomePage.jsx
+src/pages/PrivacyPage.jsx
+src/pages/NotFoundPage.jsx
+src/pages/ProjectsPage.jsx
+src/pages/DigitalAchaiaPage.jsx
+src/pages/ServicesPage.jsx
+src/pages/AboutPage.jsx
+
+===== AI FILES =====
+src/components/common/AIDock.jsx
+src/main.jsx
+src/pages/DigitalAchaiaPage.jsx
