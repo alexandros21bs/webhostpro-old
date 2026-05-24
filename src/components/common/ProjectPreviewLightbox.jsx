@@ -21,6 +21,7 @@ export default function ProjectPreviewLightbox({
 }) {
   const isOpen = activeIndex !== null && activeIndex >= 0
   const project = isOpen ? projects[activeIndex] : null
+  const hasImage = Boolean(project?.image)
 
   const [mode, setMode] = useState('live')
   const [liveNote, setLiveNote] = useState(MESSAGES.liveNoteDefault)
@@ -150,11 +151,28 @@ export default function ProjectPreviewLightbox({
           </div>
         </div>
 
-        <img
-          className="project-lightbox-image"
-          src={project.image}
-          alt={`${project.title} preview`}
-        />
+        {hasImage ? (
+          <img
+            className="project-lightbox-image"
+            src={project.image}
+            alt={`${project.title} preview`}
+          />
+        ) : (
+          <div
+            className="project-lightbox-image project-lightbox-image-placeholder"
+            role="img"
+            aria-label={`${project.title} preview placeholder`}
+          >
+            {project.badge && (
+              <span className="project-lightbox-placeholder-badge">{project.badge}</span>
+            )}
+            <strong>{project.placeholderTitle || `${project.title} Preview`}</strong>
+            <p>
+              {project.placeholderText
+                || 'Το screenshot preview δεν είναι διαθέσιμο ακόμη. Χρησιμοποίησε το Live mode ή άνοιξε το project σε νέο tab.'}
+            </p>
+          </div>
+        )}
 
         <div className="project-lightbox-live-wrap">
           <iframe

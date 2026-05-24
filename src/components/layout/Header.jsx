@@ -9,8 +9,7 @@ const navItems = [
   { label: 'Home', to: '/' },
   { label: 'Infrastructure', to: '/services' },
   { label: 'Projects', to: '/projects' },
-  { label: 'Digital Achaia', to: '/digital-achaia' },
-  { label: 'About', to: '/about' },
+  { label: 'Web Host Pro', to: '/ecosystem' },
   { label: 'Contact', to: '/contact' },
 ]
 

@@ -6,16 +6,19 @@ import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import ScrollToTop from './components/common/ScrollToTop'
 import AIDock from './components/common/AIDock'
+import TechStackCarousel from './components/common/TechStackCarousel'
 const NeuralNetworkEffect = lazy(() => import('./components/effects/NeuralNetworkEffect'))
 
 import HomePage from './pages/HomePage'
 const ServicesPage = lazy(() => import('./pages/ServicesPage'))
-const DigitalAchaiaPage = lazy(() => import('./pages/DigitalAchaiaPage'))
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage'))
-const AboutPage = lazy(() => import('./pages/AboutPage'))
+const AboutEcosystemPage = lazy(() => import('./pages/AboutEcosystemPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage'))
+const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'))
+const FaqsPage = lazy(() => import('./pages/FaqsPage'))
+const NewsPage = lazy(() => import('./pages/NewsPage'))
 import CookieBanner from './components/common/CookieBanner'
 
 const dayNames = ['Κυρ', 'Δευ', 'Τρί', 'Τετ', 'Πέμ', 'Παρ', 'Σάβ']
@@ -219,9 +222,11 @@ export default function App() {
               <Routes location={location}>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/services" element={<ServicesPage />} />
-                <Route path="/digital-achaia" element={<DigitalAchaiaPage />} />
                 <Route path="/projects" element={<ProjectsPage />} />
-                <Route path="/about" element={<AboutPage />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+                <Route path="/faqs" element={<FaqsPage />} />
+                <Route path="/news" element={<NewsPage />} />
+                <Route path="/ecosystem" element={<AboutEcosystemPage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/privacy" element={<PrivacyPage />} />
                 <Route path="*" element={<NotFoundPage />} />
@@ -230,6 +235,7 @@ export default function App() {
           </motion.div>
         </AnimatePresence>
       </main>
+      <TechStackCarousel />
       <Footer />
 
       <AIDock />

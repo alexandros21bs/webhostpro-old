@@ -1,6 +1,6 @@
 import Seo from '../components/common/Seo'
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import logAni from '../../log_ani.svg'
@@ -238,7 +238,6 @@ const projectPlaceholders = [
 ]
 
 export default function ProjectsPage() {
-  const navigate = useNavigate()
   const [expandedCards, setExpandedCards] = useState({})
   const gridVariants = {
     hidden: {},
@@ -270,10 +269,10 @@ export default function ProjectsPage() {
       <div className="container-main">
         <div className="grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="max-w-3xl">
-            <button onClick={() => navigate(-1)} className="back-btn mb-4 inline-flex items-center gap-2 text-sm text-white/50 transition hover:text-white/80">
-              <ArrowLeft size={16} /> Πίσω
-            </button>
-            <p className="text-sm uppercase tracking-[0.18em] text-cyan-200/80">
+            <Link to="/" className="back-btn mb-4 inline-flex items-center gap-2 text-sm text-amber-300/80 transition hover:text-amber-200">
+              <ArrowLeft size={16} /> Αρχική
+            </Link>
+            <p className="text-sm uppercase tracking-[0.18em] text-amber-300">
               Έργα
             </p>
             <h1 className="mt-4 text-4xl font-semibold text-[#67E8F9] md:text-6xl">

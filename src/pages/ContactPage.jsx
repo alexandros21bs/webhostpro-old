@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Mail, MapPin, Globe, Phone, MessageCircle, Send, ArrowRight, ArrowLeft } from 'lucide-react'
 import Seo from '../components/common/Seo'
 
@@ -17,7 +17,6 @@ const initialState = {
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export default function ContactPage() {
-  const navigate = useNavigate()
   const [formData, setFormData] = useState(initialState)
   const [errors, setErrors] = useState({})
   const [status, setStatus] = useState({ type: '', message: '' })
@@ -121,10 +120,10 @@ export default function ContactPage() {
 
       <div className="container-main">
         <div className="max-w-3xl">
-          <button onClick={() => navigate(-1)} className="back-btn mb-4 inline-flex items-center gap-2 text-sm text-white/50 transition hover:text-white/80">
-            <ArrowLeft size={16} /> Πίσω
-          </button>
-          <p className="text-sm uppercase tracking-[0.18em] text-cyan-200/80">
+          <Link to="/" className="back-btn mb-4 inline-flex items-center gap-2 text-sm text-amber-300/80 transition hover:text-amber-200">
+            <ArrowLeft size={16} /> Αρχική
+          </Link>
+          <p className="text-sm uppercase tracking-[0.18em] text-amber-300">
             Επικοινωνία
           </p>
           <h1 className="mt-4 text-4xl font-semibold text-[#67E8F9] md:text-6xl">
@@ -384,9 +383,14 @@ export default function ContactPage() {
             <a href="mailto:info@webhostpro.gr" className="premium-btn btn btn-primary">
               Μιλήστε μαζί μας
             </a>
-            <Link to="/digital-achaia" className="premium-btn btn btn-secondary">
+            <a
+              href="https://digitalachaia.gr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="premium-btn btn btn-secondary"
+            >
               Ανακαλύψτε την κατεύθυνση
-            </Link>
+            </a>
             <Link to="/services" className="btn-inline">
               Δείτε τις υπηρεσίες
             </Link>

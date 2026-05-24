@@ -24,3 +24,9 @@ hostinger-upload/
 *.sln
 *.sw?
 webhostpro-deploy.zip
+
+# Local backup files (not for repo)
+*.backup.*
+*.backup-*.jsx
+src/**/*.backup*.jsx
+src/**/*.backup*.css

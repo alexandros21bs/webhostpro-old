@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import {
+  ArrowLeft,
   ArrowRight,
   MonitorSmartphone,
   Bot,
@@ -7,37 +8,84 @@ import {
   LayoutDashboard,
   SearchCheck,
   Palette,
+  MapPin,
   ShieldCheck,
   Wrench,
 } from 'lucide-react'
 import Seo from '../components/common/Seo'
+import '../styles/home.css'
 
 export default function ServicesPage() {
+  const services = [
+    {
+      icon: MonitorSmartphone,
+      title: 'Websites & eShop',
+      text: 'Επαγγελματικά websites, eShop, landing pages και custom business systems με premium αισθητική και σωστή δομή.',
+    },
+    {
+      icon: Bot,
+      title: 'AI Chatbots & AI Systems',
+      text: 'AI assistants για υποστήριξη πελατών, πωλήσεις, lead capture, knowledge base και αυτοματισμούς.',
+    },
+    {
+      icon: ServerCog,
+      title: 'Hosting & Cloud Infrastructure',
+      text: 'Managed hosting, VPS, domains, SSL, Cloudflare, backups, monitoring και σταθερή cloud υποδομή.',
+    },
+    {
+      icon: LayoutDashboard,
+      title: 'SaaS Platforms & Client Portals',
+      text: 'Dashboards, client portals, product management platforms και subscription-based εφαρμογές.',
+    },
+    {
+      icon: SearchCheck,
+      title: 'Digital Marketing & SEO',
+      text: 'SEO, Google Business, social media management, campaigns, reels, stories και digital growth strategy.',
+    },
+    {
+      icon: Palette,
+      title: 'Branding & Design',
+      text: 'Λογότυπα, κάρτες, φυλλάδια, social graphics, visual identity και ολοκληρωμένη επαγγελματική εικόνα.',
+    },
+    {
+      icon: Bot,
+      title: 'AI, SaaS & Automation Systems',
+      text: 'Σχεδιάζουμε AI assistants, SaaS platforms, automation systems και custom digital tools που βοηθούν επιχειρήσεις να αυτοματοποιούν διαδικασίες, να εξυπηρετούν πελάτες και να αναπτύσσονται μέσα από σύγχρονες τεχνολογικές λύσεις.',
+      comingSoon: true,
+    },
+    {
+      icon: MapPin,
+      title: 'AI Destination Platforms',
+      text: 'Αναπτύσσουμε AI travel & destination ecosystems όπως τα AskAthens.ai και AskGreece.ai, με στόχο τη δημιουργία έξυπνων τουριστικών platforms που συνδέουν προορισμούς, επισκέπτες, επιχειρήσεις, εμπειρίες και τοπικές υπηρεσίες.',
+      comingSoon: true,
+    },
+  ]
+
   const process = [
     {
       icon: SearchCheck,
       title: 'Ανάλυση',
-      text: 'Βλέπουμε στόχο, αγορά, υπηρεσίες και τι πραγματικά χρειάζεται η επιχείρηση.',
+      paragraphs: [
+        'Ξεκινάμε κατανοώντας σε βάθος την επιχείρηση, το κοινό και τον πραγματικό στόχο του project. Μελετάμε την αγορά, τον ανταγωνισμό, τις υπηρεσίες και τις ανάγκες της επιχείρησης ώστε να δημιουργηθεί μία σωστή στρατηγική πριν ξεκινήσει οποιαδήποτε υλοποίηση.',
+        'Οργανώνουμε τη δομή του project, τις λειτουργίες, το περιεχόμενο και την τεχνολογική κατεύθυνση, ώστε η βάση να είναι σταθερή, επεκτάσιμη και έτοιμη για μελλοντική ανάπτυξη.',
+      ],
     },
     {
       icon: Wrench,
       title: 'Υλοποίηση',
-      text: 'Στήνουμε design, τεχνική βάση, περιεχόμενο, υποδομή και λειτουργίες.',
+      paragraphs: [
+        'Σχεδιάζουμε και αναπτύσσουμε το project με σύγχρονο design, σωστή εμπειρία χρήστη και ισχυρή τεχνική υποδομή. Δημιουργούμε responsive websites, e-shops, custom platforms, AI εργαλεία και cloud υποδομές που λειτουργούν γρήγορα, σταθερά και επαγγελματικά.',
+        'Παράλληλα οργανώνουμε το περιεχόμενο, το SEO, τα integrations, την ασφάλεια και όλες τις λειτουργίες που χρειάζεται μία σύγχρονη ψηφιακή παρουσία ώστε να είναι έτοιμη για πραγματική χρήση και ανάπτυξη.',
+      ],
     },
     {
       icon: ShieldCheck,
       title: 'Υποστήριξη',
-      text: 'Κρατάμε το project ενεργό με βελτιώσεις, updates, ασφάλεια και ανάπτυξη.',
+      paragraphs: [
+        'Η δουλειά δεν σταματά μετά το launch. Παρακολουθούμε και υποστηρίζουμε ενεργά κάθε project με updates, τεχνική συντήρηση, βελτιστοποιήσεις, ασφάλεια και συνεχή αναβάθμιση των λειτουργιών.',
+        'Στόχος μας είναι κάθε project να εξελίσσεται διαρκώς, να παραμένει γρήγορο, ασφαλές και σύγχρονο, ενώ παράλληλα αποκτά νέες δυνατότητες, αυτοματισμούς και AI εργαλεία που βοηθούν την επιχείρηση να αναπτύσσεται.',
+      ],
     },
-  ]
-
-  const pillars = [
-    ['Websites & eShop', MonitorSmartphone],
-    ['AI Chatbots & Systems', Bot],
-    ['Hosting & Cloud', ServerCog],
-    ['SaaS Platforms', LayoutDashboard],
-    ['Marketing & SEO', SearchCheck],
-    ['Branding & Design', Palette],
   ]
 
   return (
@@ -49,11 +97,27 @@ export default function ServicesPage() {
       />
 
       <div className="container-main">
-        <div className="glass-strong page-glow soft-grid relative overflow-hidden rounded-[36px] p-8 md:p-12">
+        <div
+          className="page-glow relative overflow-hidden rounded-[36px] border-0 p-8 md:p-12"
+          style={{
+            border: 'none',
+            background: 'transparent',
+            boxShadow: 'none',
+            backdropFilter: 'none',
+            WebkitBackdropFilter: 'none',
+          }}
+        >
           <div className="absolute -left-8 top-2 h-52 w-52 rounded-full bg-cyan-300/22 blur-3xl" />
           <div className="absolute -right-10 bottom-3 h-56 w-56 rounded-full bg-amber-400/14 blur-3xl" />
 
-          <p className="text-sm uppercase tracking-[0.18em] text-cyan-200/80">
+          <Link
+            to="/"
+            className="back-btn mb-4 inline-flex items-center gap-2 text-sm text-amber-300/80 transition hover:text-amber-200"
+          >
+            <ArrowLeft size={16} /> Αρχική
+          </Link>
+
+          <p className="text-sm uppercase tracking-[0.18em] text-amber-300">
             Web Host Pro Services
           </p>
 
@@ -67,16 +131,27 @@ export default function ServicesPage() {
             σε ένα ολοκληρωμένο επαγγελματικό οικοσύστημα.
           </p>
 
-          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {pillars.map(([title, Icon]) => (
-              <div
-                key={title}
-                className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 text-white/85"
-              >
-                <Icon size={20} className="mb-3 text-[#67E8F9]" />
-                {title}
-              </div>
-            ))}
+          <div className="mt-8 services-grid">
+            {services.map((service) => {
+              const Icon = service.icon
+
+              return (
+                <Link to="/services" className="service-card" key={service.title}>
+                  <Icon size={28} className="text-[#67E8F9]" />
+                  <h3>{service.title}</h3>
+                  <p>{service.text}</p>
+
+                  <div className="service-card-footer">
+                    {service.comingSoon && (
+                      <span className="coming-soon-badge">Coming Soon</span>
+                    )}
+                    <strong className="inline-flex items-center gap-2 text-amber-200">
+                      Περισσότερα <ArrowRight size={14} />
+                    </strong>
+                  </div>
+                </Link>
+              )
+            })}
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -86,16 +161,26 @@ export default function ServicesPage() {
             <Link to="/projects" className="premium-btn btn btn-secondary">
               Δείτε Projects
             </Link>
+            <Link
+              to="/contact"
+              className="btn-inline inline-flex items-center gap-2 border-amber-400/40! bg-amber-400/10! text-amber-300! hover:bg-amber-400/16!"
+            >
+              φτιάξε μου ενα πλάνο <ArrowRight size={14} />
+            </Link>
           </div>
         </div>
 
-        <div className="relative mt-14 overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl md:p-8">
-          <p className="text-sm uppercase tracking-[0.18em] text-amber-300/85">
+        <div className="relative mt-14 overflow-hidden rounded-[30px] border border-white/10 bg-white/3 p-6 backdrop-blur-xl md:p-8">
+          <p className="text-sm tracking-[0.08em] text-amber-300/85">
             Workflow
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-[#67E8F9] md:text-4xl">
-            Από την ιδέα μέχρι την υποστήριξη.
+            Από την ιδέα μέχρι την υποστήριξη
           </h2>
+
+          <p className="mt-4 max-w-5xl text-white/68 leading-8">
+            Δεν δημιουργούμε απλώς μία ιστοσελίδα ή μία πλατφόρμα. Χτίζουμε ολοκληρωμένα digital ecosystems με σωστή στρατηγική, τεχνολογική βάση και συνεχή εξέλιξη, ώστε κάθε project να μπορεί να αναπτυχθεί πραγματικά στο χρόνο.
+          </p>
 
           <div className="mt-7 grid gap-5 md:grid-cols-3">
             {process.map((step) => {
@@ -106,14 +191,15 @@ export default function ServicesPage() {
                   <h3 className="mt-4 text-xl font-semibold text-[#67E8F9]">
                     {step.title}
                   </h3>
-                  <p className="mt-3 leading-7 text-white/65">{step.text}</p>
+                  <p className="mt-3 leading-7 text-white/65">{step.paragraphs[0]}</p>
+                  <p className="mt-3 leading-7 text-white/65">{step.paragraphs[1]}</p>
                 </div>
               )
             })}
           </div>
         </div>
 
-        <div className="relative mt-14 overflow-hidden rounded-[30px] border border-amber-300/12 bg-gradient-to-b from-white/[0.035] to-white/[0.015] p-7 backdrop-blur-xl md:p-9">
+        <div className="relative mt-14 overflow-hidden rounded-[30px] border border-amber-300/12 bg-linear-to-b from-white/[0.035] to-white/1.5 p-7 backdrop-blur-xl md:p-9">
           <p className="text-xs tracking-[0.12em] text-cyan-100/75">
             Ready to build?
           </p>
@@ -132,7 +218,7 @@ export default function ServicesPage() {
               href="https://wa.me/306955236006"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-inline inline-flex !border-[#67E8F9]/60 !bg-[#67E8F9]/16 !text-[#67E8F9]"
+              className="btn-inline inline-flex border-[#67E8F9]/60! bg-[#67E8F9]/16! text-[#67E8F9]!"
             >
               WhatsApp <ArrowRight size={14} />
             </a>

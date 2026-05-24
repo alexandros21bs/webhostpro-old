@@ -85,15 +85,15 @@ export default function HomePage() {
       text: 'Λογότυπα, κάρτες, φυλλάδια, social graphics, visual identity και ολοκληρωμένη επαγγελματική εικόνα.',
     },
     {
-      icon: SearchCheck,
-      title: 'Business Strategy & Project Planning',
-      text: 'Οργάνωση ιδέας, ανάλυση στόχων, δομή υπηρεσιών, ψηφιακή στρατηγική και επαγγελματικός σχεδιασμός πριν την υλοποίηση.',
+      icon: Bot,
+      title: 'AI, SaaS & Automation Systems',
+      text: 'Σχεδιάζουμε AI assistants, SaaS platforms, automation systems και custom digital tools που βοηθούν επιχειρήσεις να αυτοματοποιούν διαδικασίες, να εξυπηρετούν πελάτες και να αναπτύσσονται μέσα από σύγχρονες τεχνολογικές λύσεις.',
       comingSoon: true,
     },
     {
-      icon: Palette,
-      title: 'Media Production & Digital Content',
-      text: 'Παραγωγή video, οπτικοακουστικού υλικού, podcasts, ebooks και premium περιεχομένου για brands, projects και campaigns.',
+      icon: MapPin,
+      title: 'AI Destination Platforms',
+      text: 'Αναπτύσσουμε AI travel & destination ecosystems όπως τα AskAthens.ai και AskGreece.ai, με στόχο τη δημιουργία έξυπνων τουριστικών platforms που συνδέουν προορισμούς, επισκέπτες, επιχειρήσεις, εμπειρίες και τοπικές υπηρεσίες.',
       comingSoon: true,
     },
   ]
@@ -123,6 +123,62 @@ export default function HomePage() {
         text: 'Τουριστικός οδηγός για το Διακοπτό και την ευρύτερη περιοχή, με προτάσεις, εμπειρίες, τοπική ταυτότητα και premium παρουσίαση.',
         link: 'https://discoverdiakopto.gr',
         previewSlug: 'discoverdiakopto-preview',
+      },
+      {
+        icon: Bot,
+        title: 'AskAchaia.gr',
+        category: 'AI Regional Platform',
+        text: 'AI platform για την Αχαΐα που συνδέει προορισμούς, τοπικές επιχειρήσεις, εμπειρίες και επισκέπτες σε ένα σύγχρονο digital ecosystem.',
+        link: 'https://askachaia.gr',
+        previewSlug: 'askachaia-preview',
+        previewPlaceholderTitle: 'AskAchaia.gr Preview',
+        previewPlaceholderText:
+          'Το flagship AI platform για την Αχαΐα είναι σε φάση υλοποίησης. Live preview σύντομα.',
+        ctaPrimary: 'Δείτε το Project',
+        ctaSecondary: 'Προεπισκόπηση',
+        comingSoon: true,
+      },
+      {
+        icon: LayoutDashboard,
+        title: 'AskPatra.gr',
+        category: 'Smart City AI Platform',
+        text: 'Smart city εμπειρία για την Πάτρα με AI assistant, τοπικές πληροφορίες, προτάσεις, επιχειρήσεις, events και σύγχρονη online παρουσία της πόλης.',
+        link: 'https://askpatra.gr',
+        previewSlug: 'askpatra-preview',
+        previewPlaceholderTitle: 'AskPatra.gr Preview',
+        previewPlaceholderText:
+          'Η smart city πλατφόρμα για την Πάτρα βρίσκεται σε development και θα ενεργοποιηθεί σύντομα.',
+        ctaPrimary: 'Δείτε το Project',
+        ctaSecondary: 'Προεπισκόπηση',
+        comingSoon: true,
+      },
+      {
+        icon: MapPin,
+        title: 'Kernitsa.gr',
+        type: 'Regional Project',
+        category: 'Regional Project',
+        status: 'Coming Soon',
+        text: 'Flagship digital project για την ανάδειξη της Κερνίτσας, με cinematic placeholder παρουσίαση, regional storytelling και future AI tourism ecosystem integration.',
+        link: 'https://kernitsa.gr',
+        previewSlug: 'kernitsa-preview',
+        previewPlaceholderTitle: 'Kernitsa.gr Preview',
+        previewPlaceholderText:
+          'Cinematic placeholder preview για το Kernitsa.gr. Το live project έρχεται σύντομα.',
+        comingSoon: true,
+      },
+      {
+        icon: Landmark,
+        title: 'MyDiakopto.gr',
+        type: 'Local Marketplace Platform',
+        category: 'Local Marketplace Platform',
+        status: 'COMING SOON',
+        text: 'Marketplace & local discovery platform για το Διακοπτό, σχεδιασμένη να συνδέει επισκέπτες, κατοίκους, τοπικές επιχειρήσεις, εμπειρίες και υπηρεσίες μέσα από ένα σύγχρονο digital ecosystem με future AI integration.',
+        link: 'https://mydiakopto.gr',
+        previewSlug: 'mydiakopto-preview',
+        previewPlaceholderTitle: 'MyDiakopto.gr Preview',
+        previewPlaceholderText:
+          'Premium placeholder παρουσίαση για το MyDiakopto.gr μέχρι την ενεργοποίηση του live preview.',
+        comingSoon: true,
       },
       {
         icon: ServerCog,
@@ -178,6 +234,11 @@ export default function HomePage() {
     title: card.title,
     url: card.link,
     image: previewMediaMap[card.previewSlug]?.src || '',
+    badge: card.comingSoon ? 'COMING SOON' : '',
+    placeholderTitle: card.previewPlaceholderTitle || `${card.title} Preview`,
+    placeholderText:
+      card.previewPlaceholderText
+      || 'Το screenshot preview δεν είναι διαθέσιμο ακόμη. Χρησιμοποίησε το Live mode ή άνοιξε το project σε νέο tab.',
   }))
 
   const closePreview = () => setActivePreviewIndex(null)
@@ -223,9 +284,9 @@ export default function HomePage() {
             </h1>
 
             <p>
-              Η Web Host Pro συνδυάζει websites, eShop, AI chatbots, hosting,
-              cloud υποδομές, SaaS πλατφόρμες, digital marketing και branding
-              σε ένα ολοκληρωμένο επαγγελματικό οικοσύστημα.
+              Η Web Host Pro συνδυάζει websites, AI systems, hosting, cloud
+              infrastructure, SaaS platforms και intelligent digital ecosystems
+              σε μία σύγχρονη production-ready πλατφόρμα τεχνολογίας.
             </p>
 
             <div className="hero-buttons">
@@ -301,15 +362,14 @@ export default function HomePage() {
                 ))}
               </div>
 
-              <Link to="/contact" className="ai-demo-cta">
-                Ενεργοποίηση AI Assistant
-              </Link>
-
               <div className="ai-demo-badges">
                 <span>Websites</span>
                 <span>AI Chatbots</span>
                 <span>Hosting</span>
                 <span>SaaS</span>
+                <Link to="/contact" className="ai-demo-cta">
+                  Ενεργοποίηση AI Assistant
+                </Link>
               </div>
             </div>
           </div>
@@ -353,15 +413,17 @@ export default function HomePage() {
 
           <div className="digital-achaia-intro">
             <p>
-              Η Digital Achaia δημιουργεί flagship projects για τον τουρισμό,
-              τον πολιτισμό, τις τοπικές επιχειρήσεις και τη σύγχρονη ψηφιακή
+              Η Digital Achaia δημιουργεί flagship digital projects, AI regional
+              platforms και σύγχρονες digital εμπειρίες για τον τουρισμό,
+              τον πολιτισμό, τις τοπικές επιχειρήσεις και τη νέα ψηφιακή
               ανάπτυξη της Αχαΐας.
             </p>
 
             <p>
-              Στόχος είναι η δημιουργία ενός ενιαίου digital ecosystem
-              που θα βοηθήσει περιοχές, παραγωγούς, επιχειρήσεις και
-              τοπικές δράσεις να αποκτήσουν ισχυρή online παρουσία.
+              Μέσα από platforms όπως τα AskAchaia.gr και AskPatra.gr,
+              στόχος είναι η δημιουργία ενός ενιαίου intelligent digital ecosystem
+              που θα συνδέει περιοχές, επισκέπτες, παραγωγούς, επιχειρήσεις και
+              τοπικές δράσεις σε μία σύγχρονη ψηφιακή εμπειρία.
             </p>
 
             <p>
@@ -370,9 +432,24 @@ export default function HomePage() {
               ευκαιριών για τη νέα γενιά στον τόπο μας.
             </p>
 
+            <p>
+              Με τεχνολογία, AI systems και σύγχρονα digital εργαλεία,
+              χτίζουμε τις βάσεις για ένα νέο regional ecosystem με διεθνή
+              προοπτική.
+            </p>
+
             <p className="digital-achaia-slogan">ΜΕ ΑΓΑΠΗ ΓΙΑ ΤΟΝ ΤΟΠΟ ΜΑΣ.</p>
 
             <div className="digital-achaia-actions">
+              <a
+                href="https://digitalachaia.gr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="primary-btn digital-achaia-btn-main"
+              >
+                Visit Digital Achaia
+              </a>
+
               <Link to="/projects" className="primary-btn digital-achaia-btn-main">
                 Δείτε τα Projects
               </Link>
@@ -388,11 +465,12 @@ export default function HomePage() {
           {flagshipCards.map((card, index) => {
             const Icon = card.icon
             const previewMedia = previewMediaMap[card.previewSlug]
+            const previewDomain = card.link.replace(/^https?:\/\//, '')
 
             return (
               <article
                 key={card.title}
-                className="group relative flex h-full min-h-82.5 flex-col overflow-hidden rounded-[28px] border border-white/10 bg-[#0d1828]/68 p-6 shadow-[0_14px_32px_rgba(0,0,0,0.28)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-amber-300/25 hover:shadow-[0_0_30px_rgba(103,232,249,0.18)]"
+                className="group relative digital-achaia-flagship-card flex h-full min-h-82.5 flex-col overflow-hidden rounded-[28px] border border-white/10 bg-[#0d1828]/68 p-6 shadow-[0_14px_32px_rgba(0,0,0,0.28)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-amber-300/25 hover:shadow-[0_0_30px_rgba(103,232,249,0.18)]"
               >
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-14 bg-linear-to-b from-amber-200/10 to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
 
@@ -404,41 +482,59 @@ export default function HomePage() {
                   {card.category}
                 </p>
 
+                {card.comingSoon && (
+                  <span className="coming-soon-badge digital-achaia-coming-soon-badge">COMING SOON</span>
+                )}
+
                 <h3 className="mt-2 text-2xl font-semibold leading-8 text-[#67E8F9]">
                   {card.title}
                 </h3>
 
-                <p className="mt-3 text-[1.06rem] leading-8 text-white/65">
+                <p className="mt-3 digital-achaia-card-text text-[1.06rem] leading-8 text-white/65">
                   {card.text}
                 </p>
 
-                <button
-                  type="button"
-                  onClick={() => setActivePreviewIndex(index)}
-                  className={`digital-achaia-preview-thumb mt-auto ${previewMedia?.src ? '' : 'no-image'}`}
-                  aria-label={`Προεπισκόπηση του ${card.title}`}
-                >
-                  {previewMedia?.src && (
-                    <img src={previewMedia.src} alt={`${card.title} preview`} loading="lazy" />
-                  )}
-                </button>
-
-                <div className="digital-achaia-card-actions pt-4">
-                  <a
-                    href={card.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="digital-achaia-card-btn primary"
-                  >
-                    Δείτε το site <ExternalLink size={14} />
-                  </a>
+                <div className="digital-achaia-card-bottom">
                   <button
                     type="button"
                     onClick={() => setActivePreviewIndex(index)}
-                    className="digital-achaia-card-btn ghost"
+                    className={`digital-achaia-preview-thumb ${previewMedia?.src ? '' : 'no-image'}`}
+                    aria-label={`Προεπισκόπηση του ${card.title}`}
                   >
-                    Προεπισκόπηση <Eye size={14} />
+                    {previewMedia?.src && (
+                      <img src={previewMedia.src} alt={`${card.title} preview`} loading="lazy" />
+                    )}
+
+                    {!previewMedia?.src && (
+                      <div className="digital-achaia-preview-fallback" aria-hidden="true">
+                        <span className="digital-achaia-preview-fallback-tag">PREVIEW</span>
+                        <strong>{card.previewPlaceholderTitle || `${card.title} Preview`}</strong>
+                        <p>
+                          {card.previewPlaceholderText
+                            || 'Premium προεπισκόπηση θα είναι σύντομα διαθέσιμη.'}
+                        </p>
+                        <span className="digital-achaia-preview-fallback-domain">{previewDomain}</span>
+                      </div>
+                    )}
                   </button>
+
+                  <div className="digital-achaia-card-actions">
+                    <a
+                      href={card.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="digital-achaia-card-btn primary"
+                    >
+                      {card.ctaPrimary || 'Δείτε το site'} <ExternalLink size={14} />
+                    </a>
+                    <button
+                      type="button"
+                      onClick={() => setActivePreviewIndex(index)}
+                      className="digital-achaia-card-btn ghost"
+                    >
+                      {card.ctaSecondary || 'Προεπισκόπηση'} <Eye size={14} />
+                    </button>
+                  </div>
                 </div>
               </article>
             )
@@ -474,20 +570,64 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="cta-section">
-        <div className="glass-card cta-card">
-          <h2>
-            Χτίζουμε ψηφιακή υποδομή, όχι απλά ιστοσελίδες.
-          </h2>
+      <section
+        className="newsletter-section cta-newsletter-section"
+        aria-labelledby="ecosystem-cta-title newsletter-title"
+      >
+        <div className="cta-newsletter-grid">
+          <div className="newsletter-card cta-newsletter-card glass-card">
+            <span className="newsletter-label">ECOSYSTEM</span>
 
-          <p>
-            Websites, AI systems, hosting, SaaS platforms, branding και
-            digital growth σε ένα ενιαίο production-ready ecosystem.
-          </p>
+            <h2 id="ecosystem-cta-title">
+              Χτίζουμε ψηφιακή υποδομή, όχι απλά ιστοσελίδες.
+            </h2>
 
-          <Link to="/contact" className="primary-btn">
-            Συζήτηση για Project
-          </Link>
+            <p>
+              Websites, AI systems, hosting, SaaS platforms, branding και
+              digital growth σε ένα ενιαίο production-ready ecosystem.
+            </p>
+
+            <div className="ecosystem-cta-group">
+              <Link to="/contact" className="newsletter-action-btn">
+                Συζήτηση για Project
+              </Link>
+              <Link to="/contact" className="newsletter-action-btn secondary">
+                Γινε Συνεργατης
+              </Link>
+            </div>
+          </div>
+
+          <div className="newsletter-card glass-card">
+            <span className="newsletter-label">NEWSLETTER</span>
+
+            <h2 id="newsletter-title">Μείνε συνδεδεμένος με το ecosystem.</h2>
+
+            <p>
+              Νέα projects, AI platforms, regional ecosystems, digital infrastructure και updates
+              από το Web Host Pro × Digital Achaia universe.
+            </p>
+
+            <form
+              className="newsletter-form"
+              action="mailto:info@webhostpro.gr,alexandros21bs@gmail.com"
+              method="post"
+              encType="text/plain"
+            >
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="Το email σας"
+                autoComplete="email"
+                aria-label="Newsletter email"
+              />
+              <button type="submit">Subscribe</button>
+            </form>
+
+            <p className="newsletter-note">
+              By subscribing you agree to receive ecosystem updates &amp; digital news.
+            </p>
+          </div>
         </div>
       </section>
 
