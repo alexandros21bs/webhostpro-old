@@ -367,9 +367,15 @@ export default function HomePage() {
                 <span>AI Chatbots</span>
                 <span>Hosting</span>
                 <span>SaaS</span>
-                <Link to="/contact" className="ai-demo-cta">
+                <button
+                  type="button"
+                  className="ai-demo-cta"
+                  onClick={() =>
+                    window.dispatchEvent(new CustomEvent('open-webhostpro-ai'))
+                  }
+                >
                   Ενεργοποίηση AI Assistant
-                </Link>
+                </button>
               </div>
             </div>
           </div>

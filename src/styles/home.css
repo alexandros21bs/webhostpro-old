@@ -2944,8 +2944,8 @@
 
 /* AI Dock — Production UI Polish */
 .ai-dock-chat {
-  width: min(410px, calc(100vw - 32px));
-  max-height: 580px;
+  width: min(430px, calc(100vw - 24px));
+  max-height: 620px;
 }
 
 .ai-dock-chat-header {
@@ -2954,8 +2954,79 @@
     linear-gradient(135deg, rgba(15, 23, 42, 0.84), rgba(2, 8, 23, 0.52));
 }
 
+.ai-dock-chat-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ai-dock-chat-header-actions button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(103, 232, 249, 0.16);
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.7);
+  color: rgba(241, 245, 249, 0.92);
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.ai-dock-chat-header-actions button:hover {
+  background: rgba(34, 211, 238, 0.16);
+  border-color: rgba(103, 232, 249, 0.34);
+}
+
 .ai-dock-chat-messages {
-  max-height: 355px;
+  max-height: 420px;
+}
+
+.ai-dock-message {
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.ai-dock-chat-form input {
+  font-size: 14px;
+}
+
+.ai-dock-quick-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.ai-dock-quick-option {
+  appearance: none;
+  border: 1px solid rgba(103, 232, 249, 0.22);
+  background: rgba(15, 23, 42, 0.7);
+  color: rgba(241, 245, 249, 0.94);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+.ai-dock-quick-option:hover {
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.18), rgba(251, 191, 36, 0.16));
+  border-color: rgba(251, 191, 36, 0.4);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.ai-dock-quick-option:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .ai-dock-orbit::before {
@@ -2997,10 +3068,10 @@
 @media (max-width: 640px) {
   .ai-dock-chat {
     width: calc(100vw - 24px);
-    max-height: 520px;
+    max-height: 560px;
   }
 
   .ai-dock-chat-messages {
-    max-height: 305px;
+    max-height: 360px;
   }
 }

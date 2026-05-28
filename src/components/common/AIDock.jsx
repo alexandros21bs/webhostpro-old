@@ -1,6 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const API_URL = "https://api.webhostpro.gr/api/chat";
+
+const QUICK_OPTIONS = [
+  {
+    label: "Website / eShop",
+    message: "Θέλω πληροφορίες για website ή eShop.",
+  },
+  {
+    label: "AI Chatbot",
+    message: "Θέλω AI chatbot για την επιχείρησή μου.",
+  },
+  {
+    label: "Hosting / Cloud",
+    message: "Θέλω πληροφορίες για hosting ή cloud υποδομή.",
+  },
+  {
+    label: "SaaS Platform",
+    message: "Θέλω να φτιάξω SaaS platform ή client portal.",
+  },
+  {
+    label: "Ζητήστε Προσφορά",
+    message: "Θέλω προσφορά για project. Μπορείτε να με καθοδηγήσετε;",
+  },
+];
 
 export default function AIDock() {
   const [open, setOpen] = useState(false);
@@ -15,10 +38,18 @@ export default function AIDock() {
     },
   ]);
 
-  const sendMessage = async (event) => {
-    event.preventDefault();
+  useEffect(() => {
+    const handleOpen = () => {
+      setOpen(true);
+      setChatOpen(true);
+    };
 
-    const cleanMessage = message.trim();
+    window.addEventListener("open-webhostpro-ai", handleOpen);
+    return () => window.removeEventListener("open-webhostpro-ai", handleOpen);
+  }, []);
+
+  const sendText = async (text) => {
+    const cleanMessage = (text || "").trim();
     if (!cleanMessage || loading) return;
 
     const nextHistory = [
@@ -30,7 +61,6 @@ export default function AIDock() {
     ];
 
     setHistory(nextHistory);
-    setMessage("");
     setLoading(true);
 
     try {
@@ -75,6 +105,18 @@ export default function AIDock() {
     }
   };
 
+  const sendMessage = async (event) => {
+    event.preventDefault();
+    const text = message;
+    setMessage("");
+    await sendText(text);
+  };
+
+  const handleQuickOption = (text) => {
+    if (loading) return;
+    sendText(text);
+  };
+
   const actions = [
     {
       label: "AI Assistant",
@@ -93,6 +135,8 @@ export default function AIDock() {
       href: "/contact",
     },
   ];
+
+  const showQuickOptions = history.length === 1 && history[0].role === "assistant";
 
   return (
     <div className={`ai-dock ${open ? "is-open" : ""} ${chatOpen ? "chat-is-open" : ""}`}>
@@ -126,9 +170,24 @@ export default function AIDock() {
               <span>WEB HOST PRO AI</span>
               <strong>Online Assistant</strong>
             </div>
-            <button type="button" onClick={() => setChatOpen(false)} aria-label="Close AI chat">
-              ×
-            </button>
+            <div className="ai-dock-chat-header-actions">
+              <button
+                type="button"
+                onClick={() => setChatOpen(false)}
+                aria-label="Minimize AI chat"
+                title="Minimize"
+              >
+                –
+              </button>
+              <button
+                type="button"
+                onClick={() => setChatOpen(false)}
+                aria-label="Close AI chat"
+                title="Close"
+              >
+                ×
+              </button>
+            </div>
           </div>
 
           <div className="ai-dock-chat-messages">
@@ -140,6 +199,22 @@ export default function AIDock() {
                 {item.content}
               </div>
             ))}
+
+            {showQuickOptions && (
+              <div className="ai-dock-quick-options" role="group" aria-label="Quick options">
+                {QUICK_OPTIONS.map((option) => (
+                  <button
+                    key={option.label}
+                    type="button"
+                    className="ai-dock-quick-option"
+                    onClick={() => handleQuickOption(option.message)}
+                    disabled={loading}
+                  >
+                    {option.label}
+                  </button>
+                ))}
+              </div>
+            )}
 
             {loading && <div className="ai-dock-message is-ai">Γράφω απάντηση...</div>}
           </div>
